@@ -5,6 +5,60 @@ import (
 	"time"
 )
 
+//2006-01-02 15:04:05
+// const (
+// 	ANSIC       = "Mon Jan _2 15:04:05 2006"
+// 	UnixDate    = "Mon Jan _2 15:04:05 MST 2006"
+// 	RubyDate    = "Mon Jan 02 15:04:05 -0700 2006"
+// 	RFC822      = "02 Jan 06 15:04 MST"
+// 	RFC822Z     = "02 Jan 06 15:04 -0700" // RFC822 with numeric zone
+// 	RFC850      = "Monday, 02-Jan-06 15:04:05 MST"
+// 	RFC1123     = "Mon, 02 Jan 2006 15:04:05 MST"
+// 	RFC1123Z    = "Mon, 02 Jan 2006 15:04:05 -0700" // RFC1123 with numeric zone
+// 	RFC3339     = "2006-01-02T15:04:05Z07:00"
+// 	RFC3339Nano = "2006-01-02T15:04:05.999999999Z07:00"
+// 	Kitchen     = "3:04PM"
+// 	// Handy time stamps.
+// 	Stamp      = "Jan _2 15:04:05"
+// 	StampMilli = "Jan _2 15:04:05.000"
+// 	StampMicro = "Jan _2 15:04:05.000000"
+// 	StampNano  = "Jan _2 15:04:05.000000000"
+// )
+
+// //显示当前的时间,格式"2006-01-02 15:04:05"
+// time.Now().Format("2006-01-02 15:04:05")
+
+// //显示当前的时间,格式"2006-01-02 15:04:05.232"
+//  time.Now().Format("2006-01-02 15:04:05.000")
+
+//  //当前的时间戳
+//  time.Now().Unix()
+
+//  //把时间戳转换为"2006-01-02 15:04:05"
+//  time.Unix(1470017531, 0).Format("2006-01-02 15:04:05")
+
+//  //五天前的时间
+//  time.Unix(time.Now().Unix()-3600*24*5, 0).Format("2006-01-02 15:04:05")
+
+//  //"2016-11-11 15:08:05"转换为时间戳
+//  tm,_:=time.ParseInLocation("2006-01-02 15:04:05", "2016-11-11 15:08:05", time.Local) //前一个参数是时间格式，后一个参数是需要转换的时间
+//  fmt.Println(tm.Unix())
+
+//  //获取下个月的时间
+// 	 t := time.Now()
+// 	 startTime := time.Date(t.Year(), t.Month()+1, t.Day(), 0, 0, 0, 0, t.Location()).Format("2006-01-02 15:04:05")
+//  //output:2017-05-07 00:00:00
+
+//  //从数字20171102转为时间字符串2017-11-02 00:00:00
+//  date:=20171102
+//  t, _ = time.Parse("20060102", strconv.Itoa(date))
+//  startDate := t.Format("2006-01-02") + " 00:00:00"
+//  //output: 2017-11-02 00:00:00
+
+//  //从“2017-11-02 00:00:00”转化为“20171102”
+//  t, _ := time.Parse("2006-01-02 15:04:05", "2017-11-02 00:00:00")
+//  startDateInt := t.Format("20060102")
+
 func uni() {
 	fmt.Printf("时间戳（秒）：%v;\n", time.Now().Unix())
 	fmt.Printf("时间戳（纳秒）：%v;\n", time.Now().UnixNano())
@@ -12,6 +66,17 @@ func uni() {
 	fmt.Printf("时间戳（纳秒转换为秒）：%v;\n", time.Now().UnixNano()/1e9)
 }
 
+func strToUtc() {
+	createTime, _ := time.Parse("2006-01-02 15:04:05", "2020-06-27 23:34:38")
+
+	fmt.Println(createTime.Unix())
+}
+
+func utcToStr() {
+	fmt.Println(time.Now().Format("060102"))
+}
+
 func main() {
-	uni()
+	// uni()
+	strToUtc()
 }

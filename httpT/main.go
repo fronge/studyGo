@@ -18,7 +18,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/user/login", login)
-	err := http.ListenAndServe("127.0.0.1:8800", nil)
+	err := http.ListenAndServe("0.0.0.0:8800", nil)
 	if err != nil {
 		fmt.Println("htpp listen failed")
 	}
