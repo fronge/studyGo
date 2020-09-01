@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// 以下为时间转化的一些参数，固定的使用，如果自行换的话会出问题
 //2006-01-02 15:04:05
 // const (
 // 	ANSIC       = "Mon Jan _2 15:04:05 2006"
@@ -74,6 +75,18 @@ func strToUtc() {
 
 func utcToStr() {
 	fmt.Println(time.Now().Format("060102"))
+}
+
+func bijioa() {
+	time1 := "2015-03-20 08:50:29"
+	time2 := "2015-03-21 09:04:25"
+	//先把时间字符串格式化成相同的时间类型
+	t1, err := time.Parse("2006-01-02 15:04:05", time1)
+	t2, err := time.Parse("2006-01-02 15:04:05", time2)
+	if err == nil && t1.Before(t2) {
+		//处理逻辑
+		fmt.Println("true")
+	}
 }
 
 func main() {

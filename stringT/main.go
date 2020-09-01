@@ -189,6 +189,68 @@ func testTrim() {
 	ss = strings.Trim(ss, "-")
 	fmt.Println(ss)
 }
+
+func testContains() {
+	str := `<!doctype html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>中高端人才招聘-猎聘</title>
+	<!--  -->
+	<meta name="renderer" content="webkit"><!-- 使360浏览器 默认启用极速内核 -->
+	<link rel="icon" href="//concat.lietou-static.com/fe-nlpt-pc/v5/static/favicon.b16a8905.ico" type="image/x-icon" />
+	<link rel="dns-prefetch" href="//concat.lietou-static.com" />
+	<!-- AppAdhoc start -->
+	<script src='https://sdk.gua.com/ab.plus.js'></script>
+	<script>
+	adhoc('init', {
+		appKey: 'ADHOC_8a5bdd68-c964-4a5d-8c23-297b7ba0ea58',
+		clientIdDomain:'liepin.com'
+	})
+	</script>
+	<!-- AppAdhoc end -->
+
+	<!-- 浏览器升级提醒 -->
+	<!--[if IE]>
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/ie-prompt.ec60e546.js"></script>
+	<![endif]-->
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/femonitor.min.ee371522.js"></script>
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/loader.f5cc4300.js"></script>
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/jquery-1.7.1.min.c7e0488b.js"></script>
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/polyfill.min.7d2ef4bb.js"></script>
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/common/lib.0f2577a7.js"></script>
+	<link rel="stylesheet" href="//concat.lietou-static.com/fe-nlpt-pc/v5/css/common/common.900ffa6e.css">
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/js/common/common.4027d324.js"></script>
+	<link rel="stylesheet" href="//concat.lietou-static.com/fe-nlpt-pc/v5/css/common/vendors.d5636985.css">
+	<script crossorigin="anonymous" src="//concat.lietou-static.com/fe-nlpt-pc/v5/js/common/vendors.8d96b3e4.js"></script>
+	<link rel="stylesheet" href="//concat.lietou-static.com/fe-nlpt-pc/v5/static/css/swiper.min.6c1ec3a0.css">
+	<link rel="stylesheet" href="//concat.lietou-static.com/fe-nlpt-pc/v5/css/pages/user.login.a7907b95.css">
+	<script id="CaptchaScript" src="https://captcha.myqcloud.com/Captcha.js"></script>
+	</head>
+	<body>
+	<div id="root"></div>
+
+	<script src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/swiper.min.bc508491.js"></script>
+	<script src="//concat.lietou-static.com/fe-nlpt-pc/v5/js/pages/user.login.dd26c9a8.js"></script>
+	<!--  -->
+	<script src="//concat.lietou-static.com/fe-nlpt-pc/v5/static/js/tlog.min.4a361aeb.js"></script>
+	<script>
+
+	(function () {
+	var dlog_js = document.createElement("script");
+	dlog_js.src = "//static3.lietou-static.com/dlog.js?v=3&q=" + parseInt(''+new Date()/3E5);
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(dlog_js, s);
+	})();
+
+	</script>
+
+	</body>
+	</html>
+		`
+	fmt.Println(strings.Contains(str, `<div id="root"></div>`))
+}
 func main() {
-	testTrim()
+	// testTrim()
+	testContains()
 }

@@ -23,6 +23,21 @@ type Post struct {
 	Comments  []*Comment `json:"comments"`
 }
 
+type T struct {
+	Version int
+	Content string
+}
+
+func makeT(c string, v int) *T {
+	if v == 0 {
+		v = 1
+	}
+	return &T{
+		Content: c,
+		Version: v,
+	}
+}
+
 // func main() {
 // 	// 打开json文件
 // 	fh, err := os.Open("a.json")
@@ -94,10 +109,11 @@ type Dog struct {
 }
 
 func main() {
-	a := Animal{"aa"}
-	d := Dog{4, a}
-	a.move()
-	// a.name = "bb"
-	fmt.Println(d.name)
+	// a := Animal{"aa"}
+	// d := Dog{4, a}
+	// a.move()
+	// fmt.Println(d.name)
+
+	makeT()
 
 }
