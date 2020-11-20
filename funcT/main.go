@@ -108,19 +108,21 @@ func TestArgs(aa A) {
 	aa.Name = "hhhhh"
 }
 
-func T() {
+func testArg() {
 	aa := A{
 		"aaa",
 		"bb",
 	}
-	TestCArgs(&aa)
-	fmt.Println(aa)
+
 	TestArgs(aa)
 	fmt.Println(aa)
+	TestCArgs(&aa)
+	fmt.Println(aa)
+
 }
 
 //
 func main() {
 	// fmt.Println(d())
-	T()
+	testArg()
 }
