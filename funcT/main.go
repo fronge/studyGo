@@ -101,7 +101,10 @@ type A = struct {
 	Msg  string
 }
 
-func TestArgs(aa *A) {
+func TestCArgs(aa *A) {
+	aa.Name = "hhhhh"
+}
+func TestArgs(aa A) {
 	aa.Name = "hhhhh"
 }
 
@@ -110,7 +113,9 @@ func T() {
 		"aaa",
 		"bb",
 	}
-	TestArgs(&aa)
+	TestCArgs(&aa)
+	fmt.Println(aa)
+	TestArgs(aa)
 	fmt.Println(aa)
 }
 
