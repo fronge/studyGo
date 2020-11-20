@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
-	"regexp"
 	"strings"
 )
 
@@ -175,13 +174,6 @@ func testBase64() {
 	}
 
 	fmt.Println(string(uDec))
-}
-
-func testReg() {
-	s := `"=?gb18030?B?wLXV5Mjj?=" <rigphiojfs@@vip.sohu.com>`
-	reg := regexp.MustCompile(`\w+([-+.]*\w+@)*@\w+([-.]\w+)*\.\w+([-.]\w+)*`)
-	from := reg.FindAllString(s, -1)
-	fmt.Println(from)
 }
 
 func testTrim() {

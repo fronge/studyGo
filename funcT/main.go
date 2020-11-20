@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 函数
 // 函数定义 第一个括号为参数， 第二个括号放返回值
@@ -94,7 +96,26 @@ func d() (x int) {
 	return 5 // 最终return 5
 }
 
+type A = struct {
+	Name string
+	Msg  string
+}
+
+func TestArgs(aa *A) {
+	aa.Name = "hhhhh"
+}
+
+func T() {
+	aa := A{
+		"aaa",
+		"bb",
+	}
+	TestArgs(&aa)
+	fmt.Println(aa)
+}
+
 //
 func main() {
-	fmt.Println(d())
+	// fmt.Println(d())
+	T()
 }

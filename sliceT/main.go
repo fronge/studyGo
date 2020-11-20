@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main() {
+func makeS() {
 	sli := make([]int, 0)
 	var i = 1
 	for {
@@ -17,6 +17,15 @@ func main() {
 			sli = (sli)[0:0]
 		}
 		time.Sleep(1 * time.Second)
-
 	}
+}
+
+func splitS() {
+	sli := make([]int, 0)
+	sli = append(sli, 1)
+	fmt.Println(sli[0:10])
+}
+
+func main() {
+	splitS()
 }

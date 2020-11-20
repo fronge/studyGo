@@ -41,13 +41,24 @@ func readFromFileByIoutil() {
 
 }
 
+func writeFile(fileName, content string) {
+	f, err := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	defer f.Close()
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		_, err = f.Write([]byte(content))
+		fmt.Println(err)
+	}
+}
+
 func main() {
 	// 简单的读取文件
 	// fileObj, err := os.Open("./main.go")
 	// if err != nil {
 	// 	fmt.Printf("open file falled, err:%v", err)
 	// }
-	// defer fileObj.Close()
+	// defer fileObj.Close()admin
 	// // 读文件
 	// var tmp [128]byte
 	// for {
@@ -64,6 +75,8 @@ func main() {
 	// }
 
 	// ReadFromBufIo()
-	readFromFileByIoutil()
+	// readFromFileByIoutil()
+
+	writeFile("a.txt", "hahah")
 
 }

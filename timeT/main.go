@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-05-21 18:59:19
+ * @LastEditTime: 2020-10-28 16:31:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /G/src/studyGo/timeT/main.go
+ */
 package main
 
 import (
@@ -87,6 +95,11 @@ func bijioa() {
 		//处理逻辑
 		fmt.Println("true")
 	}
+}
+
+func ticker() {
+	var tmr = time.NewTimer(time.Second)
+	tmr.Reset(123)
 }
 
 func main() {
