@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "/stream;stream";
+package stream;
+service StreamService {
+  rpc SimpleFun(RequestData) returns (ResponseData){}
+}
+message RequestData {
+  string text = 1;
+  int64 r = 2;
+}
+
+message ResponseData {
+  string text = 1;
+  int64 code = 2;
+}
+
+
