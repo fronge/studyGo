@@ -1,0 +1,42 @@
+{
+	// go build 部分
+    "go.buildTags": "",
+    "go.buildFlags": [],
+    "go.gocodeAutoBuild": false,
+    // go lint 部分，使用 golangci-lint 可避免大量无效提示
+    "go.lintOnSave":"package",
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": ["--fast"],
+    // go vet 部分
+    "go.vetOnSave":"package",
+    "go.vetFlags": [],
+    // go test 部分
+    "go.testOnSave":true,
+    "go.testFlags": [
+        "-v",
+        "-count=1"
+    ],
+    "go.coverOnSave": false,
+    // go format 部分
+    "go.formatTool": "gofmt",
+    "go.formatFlags": [],
+    "go.useDiffForFormatting": true,
+    // gopls部分，开启后可协助语法检测，自动补全等
+    "go.useLanguageServer": true,
+    "go.autocompleteUnimportedPackages": false,
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true, // add parameter placeholders when completing a function
+        "completeUnimported": true, // autocomplete unimported packages
+        "deepCompletion": true,     // enable deep completion
+        "completionDocumentation": true // for documentation in completion items
+    },
+    "files.eol": "\n",
+    "go.inferGopath": false, // formatting only supports LF line endings
+}
