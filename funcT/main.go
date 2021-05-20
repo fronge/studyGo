@@ -51,6 +51,11 @@ func f5(x string, y ...int) {
 	fmt.Println(y)
 }
 
+// 可变参数为空接口类型
+func f6(a ...interface{}){
+	fmt.Println(a...)
+}
+
 // defer 会把它后面的语句延迟到函数即将结束的时候执行 多用于函数结束之前释放资源：文件句柄，数据库连接，socket连接etc.
 // 最想定义的defer 最后执行 后进先出
 // return不是原子操作 分两步：返回值赋值，RET指令
@@ -96,6 +101,26 @@ func d() (x int) {
 	return 5 // 最终return 5
 }
 
+// 最后传入的变变量为 3 所以都输出 3
+func deferForOne(){
+	for i := 0; i<3;i++{
+		defer func(){println(i)}()
+	}
+}
+// 重新声明变量
+func deferForTwo(){
+	for i := 0; i<3;i++{
+		i := i
+		defer func(){println(i)}()
+	}
+}
+// 将变量传入
+func deferForTree(){
+	for i := 0; i<3;i++{
+		defer func(i int){println(i)}(i)
+	}
+}
+
 type A = struct {
 	Name string
 	Msg  string
@@ -121,8 +146,32 @@ func testArg() {
 
 }
 
+func twice(x []int){
+	for i:= range x{
+		x[i] *=2
+	}
+}
+
+type IntSliceHeader struct{
+	Data []int
+	Len int
+	Cap int
+}
+
+func twiceTwo(x IntSliceHeader){
+	for i:=0;i<x.Len;i++{
+		x.Data[i]*=2
+	}
+}
 //
+type interface IntSliceHeader{}
+
 func main() {
-	// fmt.Println(d())
-	testArg()
+	a := []int{1,2,}
+	twice(a)
+	fmt.Println(a)
+	b := IntSliceHeader{[]int{1,2,},2,2}
+	twiceTwo(b)
+	fmt.Println(b)
+
 }
