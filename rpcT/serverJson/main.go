@@ -1,11 +1,24 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
 	"net"
 	"net/rpc"
 	"net/rpc/jsonrpc"
 )
+
+type serverRequest struct {
+	Method string         `json:"method"`
+	Params [1]interface{} `json:"params"`
+	Id     uint64         `json:"id"`
+}
+
+type serverResponse struct {
+	Id     uint64           `json:"id"`
+	Result *json.RawMessage `json:"result"`
+	Error  interface{}      `json:"error"`
+}
 
 type HelloService struct{}
 
@@ -28,5 +41,6 @@ func main() {
 		}
 		go rpc.ServeCodec(jsonrpc.NewServerCodec(conn))
 	}
-
 }
+
+// 测试客户端: echo -e '{"method":"HelloService.Hello","params":["hello-P"],"id":1}' | nc localhost 1234
