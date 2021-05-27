@@ -47,6 +47,46 @@ func test02() {
 	fmt.Println("test02() go on...")
 }
 
+// 重新包装错误信息
+func fmtError()(err error){
+	defer func(){
+		if p:=recover();p!=nil{
+			err = fmt.Errorf("run fmtError Error: %v", p)
+		}
+	}()
+
+	panic("little error")
+	return 
+}
+
+// 自定义错误包
+type Error struct{
+	error
+	Caller() []CollerInfo
+	Wraped() []error
+	Code() int
+	provide()
+}
+
+type CollerInfo struct {
+	FuncName string
+	FileName string
+	FIleLine int
+}
+
+func New(msg string) error {}
+
+func NewWithCode(code int,msg string ) error {}
+
+func Wrap(err error,msg string ){}
+
+func WrapWithCode(code int, err error,msg string){}
+
+func FromJson(json string)(Error,error){}
+
+func ToJson(err error) string {}
+
 func main() {
-	test02()
+	a := fmtError()
+	fmt.Println(a)
 }
