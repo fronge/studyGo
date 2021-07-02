@@ -12,6 +12,11 @@ type Author struct {
 	Name string `json:"name"`
 }
 
+type AuthorTwo struct {
+	ID   int64  `json:"id"`
+	Name string `json:"name"`
+}
+
 type Comment struct {
 	ID      int64  `json:"id"`
 	Content string `json:"content"`
@@ -43,7 +48,7 @@ func makeT(c string, v int) *T {
 	}
 }
 
-func main() {
+func T1() {
 	// 打开json文件
 	fh, err := os.Open("a.json")
 	if err != nil {
@@ -67,4 +72,28 @@ func main() {
 		return
 	}
 	fmt.Println(post)
+}
+
+type (
+	ZhaoPinGouDetailReq struct {
+		CookieId     int    `json:"cookieId"`
+		ResumeHtmlId string `json:"resumeHtmlId"`
+	}
+
+	ZhaoPinGouDownLoadReq struct {
+		CookieId     int    `json:"cookieId"`
+		ResumeHtmlId string `json:"resumeHtmlId"`
+	}
+)
+
+func Ttt() {
+	var z = &ZhaoPinGouDetailReq{}
+	z.CookieId = 10
+	z.ResumeHtmlId = "000--11"
+	b := (*ZhaoPinGouDownLoadReq)(z)
+	fmt.Printf("b type:%T\n", b)
+}
+
+func main() {
+	Ttt()
 }

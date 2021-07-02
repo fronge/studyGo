@@ -36,6 +36,7 @@ func emailList(Eserver, UserName, Password string) (err error) {
 	// 选择收件箱
 	mbox, err := c.Select("INBOX", false)
 	if err != nil {
+
 		fmt.Println("select inbox err: ", err)
 		return
 	}
@@ -45,7 +46,10 @@ func emailList(Eserver, UserName, Password string) (err error) {
 	// 选择收取邮件的时间段
 	criteria := imap.NewSearchCriteria()
 	// 收取7天之内的邮件
-	criteria.Since = time.Now().Add(-7 * 24 * time.Hour)
+	t1, err := time.Parse("2006-01-02 15:04:05", "2020-03-02 15:04:05")
+	criteria.Since = t1
+
+	// criteria.Since = time.Now().Add(-7 * 24 * time.Hour)
 	// 按条件查询邮件
 	ids, err := c.Search(criteria)
 	if err != nil {
@@ -78,11 +82,11 @@ func emailList(Eserver, UserName, Password string) (err error) {
 		// 读取邮件内容
 		// body, _ := tools.ParseBody(m.Body)
 
-		fmt.Printf("%s 在时间为:%v 发送了主题为:%s的邮件\n", from, emailDate, subject)
+		fmt.Printf("%s 在时间为:%v 发送了主题为:%s \n", from, emailDate, subject)
 	}
 	return
 }
 
 func main() {
-	emailList("imap.exmail.qq.com:993", "username", "password")
+	// emailList("imap.qiye.163.com:993", "", "")
 }

@@ -85,7 +85,7 @@ func utcToStr() {
 	fmt.Println(time.Now().Format("060102"))
 }
 
-func bijioa() {
+func bijiao() {
 	time1 := "2015-03-20 08:50:29"
 	time2 := "2015-03-21 09:04:25"
 	//先把时间字符串格式化成相同的时间类型
@@ -94,6 +94,9 @@ func bijioa() {
 	if err == nil && t1.Before(t2) {
 		//处理逻辑
 		fmt.Println("true")
+	}
+	if t2.After(t1) {
+		fmt.Println(fmt.Sprintf("%v 在(After) %v之后", t2, t1))
 	}
 }
 
@@ -104,5 +107,6 @@ func ticker() {
 
 func main() {
 	// uni()
-	strToUtc()
+	bijiao()
 }
+457720
