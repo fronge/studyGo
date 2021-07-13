@@ -167,6 +167,12 @@ github.com/franela/goblin v0.0.0-20200105215937-c9ffbefa60db/go.mod h1:7dvUGVsVB
 github.com/franela/goreq v0.0.0-20171204163338-bcd34c9993f8/go.mod h1:ZhphrRTfi2rbfLwlschooIH4+wKKDR4Pdxhh+TRoA20=
 github.com/frankban/quicktest v1.7.2/go.mod h1:jaStnuzAqU1AJdCO0l53JDCJrVDKcS03DbaAcR7Ks/o=
 github.com/frankban/quicktest v1.11.3/go.mod h1:wRf/ReqHper53s+kmmSZizM8NamnL3IM0I9ntUbOk+k=
+github.com/fronge/ZFGFrameWork v0.0.0-20210702101021-204ccb72ccda h1:316BkCaPlninMhPa3kw+RiJJkF//CsTw6hDUfVwrAzw=
+github.com/fronge/ZFGFrameWork v0.0.0-20210702101021-204ccb72ccda/go.mod h1:b7+kaLBp7SJ5Np6inYGZQhbnFxkt1xbr1gRqLrmgspg=
+github.com/fronge/ZFGFrameWork v0.0.0-20210707021137-6fdb536b8e4d h1:fKCT9Fj8ZQ+Dbml/AEU4Kxg4PmQkr8PiuyoqXrG11XY=
+github.com/fronge/ZFGFrameWork v0.0.0-20210707021137-6fdb536b8e4d/go.mod h1:dxHTtfi7yYxvByYHug2PLWcie0UiG89X1MDp+lpWgyw=
+github.com/fronge/ZFGFrameWork/logger v0.0.0-20210707021137-6fdb536b8e4d h1:R8eG1VwoQsH27rEAnznXpXdlHwuWYgzEO2B5jqdI2AA=
+github.com/fronge/ZFGFrameWork/logger v0.0.0-20210707021137-6fdb536b8e4d/go.mod h1:outk62QwV2vjZckCN9xEMQT5Ga/D2+6IJ6oNrAGUI/U=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
 github.com/fsnotify/fsnotify v1.4.9 h1:hsms1Qyu0jgnwNXIxa+/V/PDsU6CfLf6CNO8H7IWoS4=
 github.com/fsnotify/fsnotify v1.4.9/go.mod h1:znqG4EE+3YCdAaPaxE2ZRY/06pZUdp0tY4IgpuI1SZQ=

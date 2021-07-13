@@ -17,6 +17,8 @@ require (
 	github.com/dop251/goja v0.0.0-20210111190058-952c20e23c35
 	github.com/emersion/go-imap v1.0.6
 	github.com/emersion/go-message v0.14.0
+	github.com/fronge/ZFGFrameWork v0.0.0-20210707021137-6fdb536b8e4d // indirect
+	github.com/fronge/ZFGFrameWork/logger v0.0.0-20210707021137-6fdb536b8e4d
 	github.com/go-clog/clog v1.2.0
 	github.com/go-sourcemap/sourcemap v2.1.3+incompatible // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
