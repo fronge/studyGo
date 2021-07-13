@@ -1,9 +1,10 @@
 package main
 
-import "log"
+import (
+	"github.com/fronge/ZFGFrameWork/logger"
+)
 
 func main() {
-	a := 1
-	log.Fatal(a)
+	logger.Debugf("aa%s", "abc")
 
 }

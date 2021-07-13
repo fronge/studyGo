@@ -3,8 +3,8 @@ package kafka
 import (
 	"fmt"
 
-	"gitea.com/lunny/log"
 	"github.com/Shopify/sarama"
+	"github.com/fronge/ZFGFrameWork/logger"
 	"gitlab.huayong.com/spider/grace/encoding"
 )
 
@@ -22,10 +22,10 @@ func InitKafka() (err error) {
 	// 连接kafka
 	Producer, err = sarama.NewSyncProducer([]string{"192.168.0.101:9092", "192.168.0.101:9093", "192.168.0.101:9094"}, conf)
 	if err != nil {
-		log.Info(err)
+		logger.Info(err)
 		return
 	}
-	log.Infof("kafka connect success")
+	logger.Infof("kafka connect success")
 
 	return
 }
