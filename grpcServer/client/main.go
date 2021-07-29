@@ -9,6 +9,7 @@ import (
 	pb "studyGo/grpcServer/grpcT"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
 )
 
 const (
@@ -16,9 +17,14 @@ const (
 )
 
 func main() {
-	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
+	// conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
+	creds, err := credentials.NewClientTLSFromFile("server.pem", "test")
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
+	}
+	conn, err := grpc.Dial(":50051", grpc.WithTransportCredentials(creds))
+	if err != nil {
+		log.Fatalf("connect to server failed: %v", err)
 	}
 	defer conn.Close()
 	c := pb.NewGrpcServiceClient(conn) //返回一个client连接，通过这个连接就可以访问到对应的服务资源，就像一个对象
