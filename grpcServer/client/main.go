@@ -16,13 +16,42 @@ const (
 	address = "localhost:50051"
 )
 
+type PerRPCCredentials interface {
+	GetRequestMetadata(ctx context.Context, uri ...string) (
+		map[string]string, error,
+	)
+	RequireTransportSecurity() bool
+}
+
+type Authentication struct {
+	User     string
+	Password string
+}
+
+func (a *Authentication) GetRequestMetadata(
+	context.Context,
+	...string) (
+	map[string]string,
+	error,
+) {
+	return map[string]string{"user": a.User, "password": a.Password}, nil
+}
+
+func (a *Authentication) RequireTransportSecurity() bool {
+	return false
+}
+
 func main() {
+	auth := Authentication{
+		User:     "gopher",
+		Password: "password",
+	}
 	// conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
 	creds, err := credentials.NewClientTLSFromFile("server.pem", "test")
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	conn, err := grpc.Dial(":50051", grpc.WithTransportCredentials(creds))
+	conn, err := grpc.Dial(":50051", grpc.WithTransportCredentials(creds), grpc.WithPerRPCCredentials(&auth))
 	if err != nil {
 		log.Fatalf("connect to server failed: %v", err)
 	}
