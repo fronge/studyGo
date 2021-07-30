@@ -62,10 +62,13 @@ func (s *server) A(ctx context.Context, in *pb.RequestData) (*pb.ResponseData, e
 }
 
 func (a *Authentication) Auth(ctx context.Context) error {
+	// 提取出元信息
 	md, ok := metadata.FromIncomingContext(ctx)
+	fmt.Println(md)
 	if !ok {
 		return fmt.Errorf("missing credentials")
 	}
+
 	var appid string
 	var appkey string
 	if val, ok := md["user"]; ok {
@@ -84,9 +87,17 @@ func (a *Authentication) Auth(ctx context.Context) error {
 	return nil
 }
 
+func filter(ctx context.Context,
+	req interface{}, info *grpc.UnaryServerInfo,
+	handler grpc.UnaryHandler,
+) (resp interface{}, err error) {
+	log.Println("fileter:", info)
+	return handler(ctx, req)
+}
+
 func main() {
 	creds, err := credentials.NewServerTLSFromFile("server.pem", "server.key")
-	s := grpc.NewServer(grpc.Creds(creds))
+	s := grpc.NewServer(grpc.Creds(creds), grpc.UnaryInterceptor(filter))
 
 	lis, err := net.Listen("tcp", port) //开启监听
 	if err != nil {
