@@ -94,5 +94,4 @@ func emailList(Eserver, UserName, Password string) (err error) {
 func main() {
 	// emailList("imap.163.com:993", "z_frange@163.com", "WAPHMMRZZWDXJUOZ")
 	emailList("imap.163.com:993", "yike123120@163.com", "750059?")
-	// emailList("imap.exmail.qq.com:993", "zhangfengguang@hua-yong.com", "admin123ZFG")
 }
