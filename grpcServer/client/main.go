@@ -56,6 +56,7 @@ func main() {
 		log.Fatalf("connect to server failed: %v", err)
 	}
 	defer conn.Close()
+
 	c := pb.NewGrpcServiceClient(conn) //返回一个client连接，通过这个连接就可以访问到对应的服务资源，就像一个对象
 	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), 4*time.Second) //返回一个client，并设置超时时间
@@ -64,5 +65,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not rpc: %v,%T", err, c)
 	}
+
 	fmt.Println(fmt.Sprintf("%v", r))
 }

@@ -116,3 +116,28 @@ func main() {
 		log.Fatalf("failed to serve: %v", err)
 	}
 }
+
+// select uuid as baidu_std from position_details_baidu_std where company_name = "上海玛帕贸易有限公司";
+// select uuid as chinahr from position_details_chinahr where company_name = "上海玛帕贸易有限公司";
+// select uuid as cjol from position_details_cjol where company_name = "上海玛帕贸易有限公司";
+// select uuid as dajie from position_details_dajie where company_name = "上海玛帕贸易有限公司";
+// select uuid as haitou from position_details_haitou where company_name = "上海玛帕贸易有限公司";
+// select uuid as huangye88 from position_details_huangye88 where company_name = "上海玛帕贸易有限公司";
+// select uuid as itjuzi from position_details_itjuzi where company_name = "上海玛帕贸易有限公司";
+// select uuid as jyjob from position_details_jyjob where company_name = "上海玛帕贸易有限公司";
+// select uuid as kanzhun from position_details_kanzhun where company_name = "上海玛帕贸易有限公司";
+// select uuid as lagou from position_details_lagou where company_name = "上海玛帕贸易有限公司";
+// select uuid as liepin from position_details_liepin where company_name = "上海玛帕贸易有限公司";
+// select uuid as meiye from position_details_meiye where company_name = "上海玛帕贸易有限公司";
+// select uuid as qimingpian from position_details_qimingpian where company_name = "上海玛帕贸易有限公司";
+// select uuid as qiyeminglu from position_details_qiyeminglu where company_name = "上海玛帕贸易有限公司";
+// select uuid as shunqi from position_details_shunqi where company_name = "上海玛帕贸易有限公司";
+// select uuid as tuilie from position_details_tuilie where company_name = "上海玛帕贸易有限公司";
+// select uuid as wuba from position_details_wuba where company_name = "上海玛帕贸易有限公司";
+// select uuid as wuyou from position_details_wuyou where company_name = "上海玛帕贸易有限公司";
+// select uuid as yingcai from position_details_yingcai where company_name = "上海玛帕贸易有限公司";
+// select uuid as zhaopingou from position_details_zhaopingou where company_name = "上海玛帕贸易有限公司";
+// select uuid as zhilian from position_details_zhilian where company_name = "上海玛帕贸易有限公司";
+// select uuid as zhipin from position_details_zhipin where company_name = "上海玛帕贸易有限公司";
+// select uuid as zhiq from position_details_zhiq where company_name = "上海玛帕贸易有限公司";
+// select uuid as zyquan7360 from position_details_zyquan7360 where company_name = "上海玛帕贸易有限公司";

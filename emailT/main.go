@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/emersion/go-imap"
+	id "github.com/emersion/go-imap-id"
 	"github.com/emersion/go-imap/client"
 	"github.com/emersion/go-message"
 )
@@ -32,6 +33,14 @@ func emailList(Eserver, UserName, Password string) (err error) {
 		fmt.Println(err)
 		return
 	}
+	idClient := id.NewClient(c)
+	idClient.ID(
+		id.ID{
+			id.FieldName:    "IMAPClient",
+			id.FieldVersion: "3.1.0",
+		},
+	)
+
 	defer c.Close()
 	// 选择收件箱
 	mbox, err := c.Select("INBOX", false)
@@ -48,8 +57,6 @@ func emailList(Eserver, UserName, Password string) (err error) {
 	// 收取7天之内的邮件
 	t1, err := time.Parse("2006-01-02 15:04:05", "2020-03-02 15:04:05")
 	criteria.Since = t1
-
-	// criteria.Since = time.Now().Add(-7 * 24 * time.Hour)
 	// 按条件查询邮件
 	ids, err := c.Search(criteria)
 	if err != nil {
@@ -67,26 +74,25 @@ func emailList(Eserver, UserName, Password string) (err error) {
 		done <- c.Fetch(seqset, []imap.FetchItem{sect.FetchItem()}, messages)
 	}()
 	for msg := range messages {
-
 		r := msg.GetBody(sect)
 		m, err := message.Read(r)
 		if err != nil {
 			fmt.Println(err)
-			return err
+			// return err
 		}
-
 		header := m.Header
 		emailDate, _ := net_mail.ParseDate(header.Get("Date"))
 		subject := tools.GetSubject(header)
 		from := tools.GetFrom(header)
 		// 读取邮件内容
 		// body, _ := tools.ParseBody(m.Body)
-
 		fmt.Printf("%s 在时间为:%v 发送了主题为:%s \n", from, emailDate, subject)
 	}
 	return
 }
 
 func main() {
-	// emailList("imap.qiye.163.com:993", "", "")
+	// emailList("imap.163.com:993", "z_frange@163.com", "WAPHMMRZZWDXJUOZ")
+	emailList("imap.163.com:993", "yike123120@163.com", "750059?")
+	// emailList("imap.exmail.qq.com:993", "zhangfengguang@hua-yong.com", "admin123ZFG")
 }

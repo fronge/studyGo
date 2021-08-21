@@ -16,15 +16,20 @@ require (
 	github.com/donnie4w/dom4g v0.0.0-20161128195229-fc6d4f1a3116
 	github.com/dop251/goja v0.0.0-20210111190058-952c20e23c35
 	github.com/emersion/go-imap v1.0.6
+	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
 	github.com/emersion/go-message v0.14.0
 	github.com/fronge/ZFGFrameWork v0.0.0-20210707021137-6fdb536b8e4d // indirect
 	github.com/fronge/ZFGFrameWork/logger v0.0.0-20210707021137-6fdb536b8e4d
+	github.com/fullstorydev/grpcurl v1.8.2 // indirect
 	github.com/go-clog/clog v1.2.0
 	github.com/go-sourcemap/sourcemap v2.1.3+incompatible // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/gocolly/colly v1.2.0
+	github.com/gogo/protobuf v1.3.1
 	github.com/golang/protobuf v1.5.2
+	github.com/grpc-ecosystem/grpc-gateway v1.14.3
 	github.com/hsyan2008/go-logger v0.0.0-20201030135914-f6dbda938bed
+	github.com/hsyan2008/hfw v0.0.0-20210524063758-d19f83456175
 	github.com/kennygrant/sanitize v1.2.4 // indirect
 	github.com/robertkrimen/otto v0.0.0-20200922221731-ef014fd054ac
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca // indirect

@@ -1,0 +1,20 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "miniprogramRoot": "miniprogram/",
+  "compileType": "miniprogram",
+  "libVersion": "2.15.0",
+  "projectname": "coolcar",
+  "scripts": {
+    "beforeCompile": "npm run tsc",
+    "beforePreview": "npm run tsc",
+    "beforeUpload": "                            把v                                                                                                                                                                                                              npm run tsc"
+  },
+  "setting": {},
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "appid": "wxe7c14302766e65a7",
+  "condition": {}
+}
